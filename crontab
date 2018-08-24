@@ -1,0 +1,23 @@
+## 简介  
+cron是一个linux下 的定时执行工具，可以在无需人工干预的情况下运行作业  
+- /sbin/service crond start    //启动服务  
+- /sbin/service crond stop     //关闭服务  
+- /sbin/service crond restart  //重启服务  
+- /sbin/service crond reload   //重新载入配置  
+- /sbin/service crond status   //查看服务状态   
+
+## 写法  
+minute hour day-of-month month-of-year day-of-week who command
+
+### 举例  
+12,24 12 * * * root haha.sh # 以root身份每天12点12分和24分执行haha.sh  
+/2 * * * * * root haha.sh # 每两分钟执行haha.sh  
+
+## 执行  
+crontab xxx.cron
+
+## 检查  
+crontab -l 
+
+## 经典错误
+premaure EOF -> 末尾加一空白行
