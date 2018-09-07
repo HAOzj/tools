@@ -12,6 +12,7 @@ window-level :
   >tmux new-window (prefix + c) # prefix指的是Control+b同时按下后释放,prefix +c意味着Control+b同时按下后释放然后按c    
   >tmux select-window {window_name}  (prefix + {window_number}) # 切换窗口   
   >tmux rename-window (prefix + ,) # 重命名窗口  
+  > prefix + & # 关闭窗口  
   
 pane-level:  
   >tmux split-window  (prefix + ") # 把当前window分成上下两个panes  
