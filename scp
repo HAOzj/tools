@@ -1,0 +1,5 @@
+# 作用
+linux远程拷贝工具
+
+# 用法  
+scp -r user@ip:file_path destination 
