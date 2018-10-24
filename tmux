@@ -18,3 +18,4 @@ pane-level:
   >tmux split-window  (prefix + ") # 把当前window分成上下两个panes  
   >tmux split-window -h (prefix + %) # 把当前window分成左右两个panes  
   >tmux swap-pane -[UDLR]  (prefix + <arrow-key>) # navigate panes  
+  >prefix + x # kill pane
