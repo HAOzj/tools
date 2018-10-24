@@ -42,9 +42,7 @@ stdout_logfile = /root/amazon_server/app.log
 >unlink /***/supervisor.sock
 
 ## supervisorctl  
-supervisorctl是supervisord的命令行客户端管理工具，用来管理进程。
-
-
+supervisorctl是supervisord的命令行客户端管理工具，用来管理进程  
 
 >supervisorctl  # 进入交互shell环境  
 >reread #读取配置文件  
