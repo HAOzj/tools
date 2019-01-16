@@ -1,5 +1,6 @@
-tmux被称为terminal complexer,作用就是在一个窗口下可以打开多个窗口和切分窗口(叫做panes).层次为3级:session,window和pane.当我们exit后就删除了所在的
-session,window或pane
+tmux被称为terminal complexer,作用就是在一个窗口下可以打开多个窗口和切分窗口(叫做panes).  
+层次为3级,从高到低位:session,window和pane.  
+tmux允许我们在ssh不稳定的情况下稳定得运行程序.  
 
 session-level :  
   >tmux ls # list sessions  
@@ -10,7 +11,7 @@ session-level :
 
 window-level :  
   >tmux new-window (prefix + c) # prefix指的是Control+b同时按下后释放,prefix +c意味着Control+b同时按下后释放然后按c    
-  >tmux select-window {window_name}  (prefix + {window_number}) # 切换窗口   
+  >tmux select-window {window_name}  (prefix + {window_number}) # 切换窗口, window_number为1-9的数字   
   >tmux rename-window (prefix + ,) # 重命名窗口  
   > prefix + & # 关闭窗口  
   
