@@ -9,7 +9,10 @@ git tag -a 0.1.1 -m "Release version 0.1.1"
 git push origin --tag  # 全部tags  
 git push origin v0.1.1 # 单个tag
 
-## fetch某个tag  
+## 从远程fetch所有tag  
+git fetch --tags  
+
+## reset to某个tag
 git checkout -b [newBranch] v0.1.1 # 需要创建新分支,因为tag只是一个快照
 
 ## 删除远程tag
