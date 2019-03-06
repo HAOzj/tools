@@ -35,6 +35,10 @@ stdout_logfile_backups = 10     ; stdout 日志文件备份数
 ; stdout 日志文件，需要注意当指定目录不存在时无法正常启动，所以需要手动创建目录（supervisord 会自动创建日志文件）  
 stdout_logfile = /root/amazon_server/app.log  
 
+killasgroup=true # 使用uwsgi时需要加上
+stopasgroup=true # 使用uwsgi时需要加上
+
+
 ## 读取配置  
 >supervisord -c /etc/supervisord.conf
 
@@ -48,3 +52,4 @@ supervisorctl是supervisord的命令行客户端管理工具，用来管理进�
 >reread #读取配置文件  
 >start amazon_server #启动程序 
 
+### 更新已有文件时需要先 remove,然后reread;不能直接reread
