@@ -9,36 +9,36 @@ https://www.jianshu.com/p/03619bf7d7f5
 ## 通过echo_supervisord_conf 命令生成配置文件  
 >echo_supervisord_conf > /etc/supervisord.conf
 
-## 修改配置  
-加入program配置文件的地址  
-
+## 配置文件加入program配置文件的地址  
+  
+```
 [include]  
 files = /etc/supervisor/*.conf  
-
+```
 
 ## 创建program配置文件  
 注意把program配置文件放在配置文件中files项下
 
+```
+;a_server.conf
 
-  ;a_server.conf
+[program:a_server] ;程序名  
+directory = /root/amazon_server ; 程序的启动目录  
+command = python app.py  ; 启动命令，可以看出与手动在命令行启动的命令是一样的  
+autostart = true     ; 在 supervisord 启动的时候也自动启动  
+startsecs = 5        ; 启动 5 秒后没有异常退出，就当作已经正常启动了  
+autorestart = true   ; 程序异常退出后自动重启  
+startretries = 3     ; 启动失败自动重试次数，默认是 3   
+user = root          ; 用哪个用户启动  
+redirect_stderr = true  ; 把 stderr 重定向到 stdout，默认 false  
+stdout_logfile_maxbytes = 100MB  ; stdout 日志文件大小，默认 50MB  
+stdout_logfile_backups = 10     ; stdout 日志文件备份数  
+; stdout 日志文件，需要注意当指定目录不存在时无法正常启动，所以需要手动创建目录（supervisord 会自动创建日志文件）  
+stdout_logfile = /root/amazon_server/app.log  
 
-  [program:a_server] ;程序名  
-  directory = /root/amazon_server ; 程序的启动目录  
-  command = python app.py  ; 启动命令，可以看出与手动在命令行启动的命令是一样的  
-  autostart = true     ; 在 supervisord 启动的时候也自动启动  
-  startsecs = 5        ; 启动 5 秒后没有异常退出，就当作已经正常启动了  
-  autorestart = true   ; 程序异常退出后自动重启  
-  startretries = 3     ; 启动失败自动重试次数，默认是 3   
-  user = root          ; 用哪个用户启动  
-  redirect_stderr = true  ; 把 stderr 重定向到 stdout，默认 false  
-  stdout_logfile_maxbytes = 100MB  ; stdout 日志文件大小，默认 50MB  
-  stdout_logfile_backups = 10     ; stdout 日志文件备份数  
-  ; stdout 日志文件，需要注意当指定目录不存在时无法正常启动，所以需要手动创建目录（supervisord 会自动创建日志文件）  
-  stdout_logfile = /root/amazon_server/app.log  
-
-  killasgroup=true # 使用uwsgi时需要加上
-  stopasgroup=true # 使用uwsgi时需要加上
-
+killasgroup=true # 使用uwsgi时需要加上
+stopasgroup=true # 使用uwsgi时需要加上
+```
 
 ## 读取配置  
 >supervisord -c /etc/supervisord.conf
@@ -52,7 +52,8 @@ supervisorctl是supervisord的命令行客户端管理工具，用来管理进�
 >supervisorctl  # 进入交互shell环境  
 >reread         #读取配置文件  
 >start a_server #启动程序 
->status         # 查看进程状态
->exit           # 退出
+>status         # 查看进程状态  
+>exit           # 退出  
 
-### 更新已有文件时需要先stop,然后reread;避免使用reload,因为reload会重启所有服务
+## 注意
+更新已有文件时需要先stop,然后reread;避免使用reload,因为reload会重启所有服务
