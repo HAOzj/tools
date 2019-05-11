@@ -6,7 +6,7 @@ https://www.jianshu.com/p/03619bf7d7f5
 ## 安装  
 >sudo pip install supervisor
 
-## 配置  
+## 通过echo_supervisord_conf 命令生成配置文件  
 >echo_supervisord_conf > /etc/supervisord.conf
 
 ## 修改配置  
