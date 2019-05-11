@@ -1,5 +1,0 @@
-# 作用
-linux远程拷贝工具
-
-# 用法  
-scp -r source user@ip:destination  
