@@ -13,12 +13,13 @@ minute hour day-of-month month-of-year day-of-week who command
 12,24 12 * * * root haha.sh # 以root身份每天12点12分和24分执行haha.sh  
 /2 * * * * * root haha.sh # 每两分钟执行haha.sh  
 
-## 执行  
-crontab xxx.cron # 这条命令会覆盖当前用户的cron文,不要被网上劣质博客误导而频繁使用
-crontab -e # 进入用户.cron文件来编辑
+## 命令  
+crontab -e            # 进入用户.cron文件来编辑
+crontab -l [-u USER]  # 查看用户(默认为当前用户)的文件 
 
-## 检查  
-crontab -l # 查看当前用户的文件, -u user
 
 ## 经典错误
 premature EOF -> 末尾加一空白行
+
+## 注意
+crontab xxx.cron # 这条命令会覆盖当前用户的cron文件,不要随便使用
