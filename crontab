@@ -14,11 +14,11 @@ minute hour day-of-month month-of-year day-of-week who command
 /2 * * * * * root haha.sh # 每两分钟执行haha.sh  
 
 ## 执行  
-crontab xxx.cron # 这条命令会覆盖当前用户的cron文件
+crontab xxx.cron # 这条命令会覆盖当前用户的cron文,不要被网上劣质博客误导而频繁使用
 crontab -e # 进入用户.cron文件来编辑
 
 ## 检查  
 crontab -l # 查看当前用户的文件, -u user
 
 ## 经典错误
-premaure EOF -> 末尾加一空白行
+premature EOF -> 末尾加一空白行
