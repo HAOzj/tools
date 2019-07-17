@@ -21,32 +21,46 @@ inner full join: left join 和 right join的union
 ### 例子  
 
 A表 
+
 | id | name|  
+| ------ | ------|
 | 1 | a |
 | 2 | beta |
 
 
 B表 
+
 | id | name|  
+| ------ | ------|
 | 1 | a |
 | 2 | b |
 
 A left join B on A.name=B.name 为
+
+
 | A.id | A.name | B.id | B.name |
+| ------ | ------| ------ | ------|
 | 1    |  a     | 1    |  a     |
 | 2    | beta   | null | null   |
 
 A right join B on A.name=B.name 为
+
 | A.id | A.name | B.id | B.name |
+| ------ | ------| ------ | ------|
 | 1    |  a     | 1    |  a     |
 | null |  null  | 2    |  b     |
 
 A inner join B on A.name=B.name 为
+
+
 | A.id | A.name | B.id | B.name |
+| ------ | ------| ------ | ------|
 | 1    |  a     | 1    |  a     |
 
 A full outer join B on A.name=B.name 为
+
 | A.id | A.name | B.id | B.name |
+| ------ | ------| ------ | ------|
 | 1    |  a     | 1    |  a     |
 | 2    | beta   | null | null   |
 | null |  null  | 2    |  b     |
@@ -71,3 +85,5 @@ SELECT province, city, gdp, GDP_rank
     
  其中GDP JOIN (SELECT @current_province := NULL, @GDP_rank := 0) AS vars是为了初始化current_province和GDP_rank两个局部变量
 
+## substring  
+substring_index(str, deliminater, cnt) # 返回str中第<cnt>个deliminater之前的子串
