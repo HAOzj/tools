@@ -11,7 +11,7 @@ tmux允许我们在ssh不稳定的情况下稳定得运行程序.
 tmux ls                          # list sessions  
 tmux new  -s SESSION_NAME        # 创建新的session  
 tmux attach -t SESSION_NAME      # 连接session  
-tmux detach                      # 从session断开  
+tmux detach      (prefix + d)    # 从session断开  
 tmux rename-session -t OLD_NAME NEW_NAME 
 ```
 ## window-level   
