@@ -89,3 +89,11 @@ SELECT province, city, gdp, GDP_rank
 
 ## substring  
 substring_index(str, deliminater, cnt) # 返回str中第<cnt>个deliminater之前的子串
+	
+## in和exists区别  
+https://www.cnblogs.com/linqingvoe/p/10916209.html  
+rule of thumb: 内层查询的表大时用exists,反之用in  
+
+e.g.  
+select id from student where exists (select * from purchase where student.id=purchase.uid)  
+select * from purchase where uid in (select id from student where age>20)
