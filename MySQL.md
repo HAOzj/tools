@@ -97,3 +97,12 @@ rule of thumb: 内层查询的表大时用exists,反之用in
 e.g.  
 select id from student where exists (select * from purchase where student.id=purchase.uid)  
 select * from purchase where uid in (select id from student where age>20)
+
+
+## 查看数据库和数据表所占空间大小
+
+```
+USE information_schema;
+SELECT TABLE_SCHEMA, SUM(DATA_LENGTH)/1024/1024 FROM TABLES GROUP BY TABLE_SCHEMA;
+SELECT TABLE_NAME, (DATA_LENGTH+INDEX_LENGTH)/1024/1024, TABLE_ROWS FROM TABLES WHERE TABLE_SCHEMA='数据库名';
+```
