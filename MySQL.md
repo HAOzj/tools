@@ -90,6 +90,10 @@ SELECT province, city, gdp, GDP_rank
 ## substring  
 substring_index(str, deliminater, cnt) # 返回str中第<cnt>个deliminater之前的子串
 	
+## group_concat  
+分组之后拼接字段  
+group_concat(distinct field1 order by field1 desc separator "|")  
+
 ## in和exists区别  
 https://www.cnblogs.com/linqingvoe/p/10916209.html  
 rule of thumb: 内层查询的表大时用exists,反之用in  
