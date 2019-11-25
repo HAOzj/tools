@@ -110,3 +110,12 @@ USE information_schema;
 SELECT TABLE_SCHEMA, SUM(DATA_LENGTH)/1024/1024 FROM TABLES GROUP BY TABLE_SCHEMA;
 SELECT TABLE_NAME, (DATA_LENGTH+INDEX_LENGTH)/1024/1024, TABLE_ROWS FROM TABLES WHERE TABLE_SCHEMA='数据库名';
 ```
+
+## 整数类型  
+
+| 类型 | 最小 | 最大 | 范围大小 | 占用字节数 |
+| ------ | ------| ------ | ------|------|
+| tinyint | 0 | 255 | 2^8 | 1|
+| smallint| $-2^15$ |  2^15-1| 2^16 | 2 |
+| int | -2^31 | 2^31-1 | 2^32 | 4 | 
+| bigint | -2^63 | 2^63-1 | 2^64 | 8 | 
