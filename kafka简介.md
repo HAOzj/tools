@@ -31,6 +31,13 @@ Partition是物理上的概念,每个topic分多个分区(partition),分区的�
 - follower同步leader数据(也有说消费者可以在follower中进行查询,不确定).
 - leader坏了就用follower.
 
+# Kafka命令行
+```
+kafka-consumer-groups --describe --group hzj --bootstrap-server 127.0.0.1:88  # 查看消费者情况,包括offset等
+kafka-console-consumer --bootstrap-server 127.0.0.1:88 --topic mytopic --offset 100 # 消费100后的消息
+kafka-console-consumer --bootstrap-server 127.0.0.1:88 --topic mytopic --group  mygroup # 消费组
+```
+
 # 参考
 http://blog.hszofficial.site/experiment/2019/04/06/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/
 
